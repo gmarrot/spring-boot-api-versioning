@@ -1,0 +1,96 @@
+buildscript {
+    ext {
+        assertKVersion = "0.25"
+        junitVersion = "5.8.2"
+        kotlinVersion = "1.6.21"
+        ktlintVersion = "10.3.0"
+        mockkVersion = "1.12.4"
+        springBootVersion = "2.6.7"
+        springmockkVersion = "3.1.1"
+    }
+}
+
+plugins {
+    // Core
+    id("idea")
+
+    // Kotlin
+    id("org.jetbrains.kotlin.jvm") version "${kotlinVersion}"
+    id("org.jetbrains.kotlin.plugin.spring") version "${kotlinVersion}"
+
+    // Spring
+    id("org.springframework.boot") version "${springBootVersion}"
+    id("io.spring.dependency-management") version "1.0.11.RELEASE"
+
+    // Third Party
+    id("org.jlleitschuh.gradle.ktlint") version "${ktlintVersion}"
+}
+
+group = "com.betomorrow.sandbox"
+version = "1.0.0-SNAPSHOT"
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Kotlin
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+
+    // Spring
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+
+    // Jackson
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+
+    /**
+     * Testing
+     */
+    // Testing: JUnit
+    testImplementation("org.junit.jupiter:junit-jupiter:${junitVersion}")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+
+    // Testing: Assertions
+    testImplementation("com.willowtreeapps.assertk:assertk-jvm:${assertKVersion}")
+
+    // Testing: Mock
+    testImplementation("io.mockk:mockk:${mockkVersion}")
+    testImplementation("com.ninja-squad:springmockk:${springmockkVersion}")
+
+    // Testing: Spring
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+        exclude(group: "org.mockito", module: "mockito-core")
+    }
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
+    kotlinOptions {
+        freeCompilerArgs = ["-Xjsr305=strict"]
+        jvmTarget = "11"
+    }
+}
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+}
+
+/**
+ * Spring Boot
+ */
+
+springBoot {
+    mainClass.set("com.betomorrow.sandbox.ApplicationKt")
+}
+
+/**
+ * Gradle Wrapper
+ */
+
+wrapper {
+    distributionType = Wrapper.DistributionType.ALL
+}

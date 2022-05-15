@@ -1,0 +1,20 @@
+logging:
+  pattern:
+    console: "%clr(%-30(%d{HH:mm:ss.SSS} [%thread])){faint} %replace(%clr(%X{request_category:--} %.-8X{request_id:--}){magenta} %clr(%-10.-10X{user_id:--} ){blue}){'^-.*$',''}%clr(%-5level) %clr(%-50.50logger{49}){cyan} %clr(:){faint} %msg%n"
+  level:
+    com.betomorrow.sandbox: debug
+    org.springframework.web.filter.CommonsRequestLoggingFilter: warn
+    org.springframework.web.servlet.DispatcherServlet: debug
+
+server:
+  compression:
+    enabled: true
+  forward-headers-strategy: native
+  tomcat:
+    redirect-context-root: true
+
+spring:
+  jackson:
+    property-naming-strategy: LOWER_CAMEL_CASE
+  mvc:
+    log-request-details: true

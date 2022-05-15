@@ -1,0 +1,20 @@
+# Build
+build/
+out/
+
+# Development
+.config-local/
+/config/
+application-debug.yml
+
+# Gradle
+.gradle/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Globals
+.DS_Store
