@@ -1,12 +1,12 @@
 buildscript {
     ext {
         assertKVersion = "0.25"
-        junitVersion = "5.8.2"
-        kotlinVersion = "1.6.21"
-        ktlintVersion = "10.3.0"
-        mockkVersion = "1.12.4"
-        springBootVersion = "2.6.7"
-        springmockkVersion = "3.1.1"
+        junitVersion = "5.9.2"
+        kotlinVersion = "1.7.22"
+        ktlintVersion = "11.1.0"
+        mockkVersion = "1.13.4"
+        springBootVersion = "2.7.10"
+        springmockkVersion = "3.1.2"
     }
 }
 
@@ -29,8 +29,8 @@ plugins {
 group = "com.betomorrow.sandbox"
 version = "1.0.0-SNAPSHOT"
 
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 repositories {
     mavenCentral()
@@ -71,7 +71,7 @@ dependencies {
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
     kotlinOptions {
         freeCompilerArgs = ["-Xjsr305=strict"]
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 }
 
