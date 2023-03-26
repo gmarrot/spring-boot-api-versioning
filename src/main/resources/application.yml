@@ -18,3 +18,8 @@ spring:
     property-naming-strategy: LOWER_CAMEL_CASE
   mvc:
     log-request-details: true
+
+springdoc:
+  packages-to-scan: com.betomorrow.sandbox
+  swagger-ui:
+    path: /docs/swagger-ui.html

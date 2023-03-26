@@ -6,6 +6,7 @@ buildscript {
         ktlintVersion = "11.1.0"
         mockkVersion = "1.13.4"
         springBootVersion = "2.7.10"
+        springdocVersion = "1.6.15"
         springmockkVersion = "3.1.2"
     }
 }
@@ -47,6 +48,12 @@ dependencies {
 
     // Jackson
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+
+    // Documentation
+    implementation("org.springdoc:springdoc-openapi-common:${springdocVersion}")
+    implementation("org.springdoc:springdoc-openapi-data-rest:${springdocVersion}")
+    implementation("org.springdoc:springdoc-openapi-kotlin:${springdocVersion}")
+    implementation("org.springdoc:springdoc-openapi-ui:${springdocVersion}")
 
     /**
      * Testing
