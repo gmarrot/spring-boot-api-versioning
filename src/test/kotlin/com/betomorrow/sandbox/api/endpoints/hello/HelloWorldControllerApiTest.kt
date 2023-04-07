@@ -1,21 +1,12 @@
-package com.betomorrow.sandbox.api
+package com.betomorrow.sandbox.api.endpoints.hello
 
-import com.betomorrow.sandbox.Application
+import com.betomorrow.sandbox.api.ApiTest
 import org.junit.jupiter.api.Test
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
-import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
-@SpringBootTest(classes = [Application::class], webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@AutoConfigureMockMvc
-internal class HelloWorldControllerApiTest {
-    @Autowired
-    private lateinit var mockMvc: MockMvc
-
+internal class HelloWorldControllerApiTest : ApiTest() {
     @Test
     fun `hello world endpoint should not be accessible without API version header`() {
         mockMvc

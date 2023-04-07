@@ -1,4 +1,4 @@
-package com.betomorrow.sandbox.api
+package com.betomorrow.sandbox.api.endpoints.hello
 
 import com.betomorrow.sandbox.infra.spring.RequestApiVersion
 import org.springframework.web.bind.annotation.GetMapping
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/hello")
 @RequestApiVersion("1.0", "2.0")
 class HelloWorldController {
-    @GetMapping()
+    @GetMapping
     fun helloWorld(): String {
         return "Hello World!"
     }
