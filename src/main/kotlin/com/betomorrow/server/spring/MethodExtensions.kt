@@ -1,4 +1,4 @@
-package com.betomorrow.sandbox.infra.spring
+package com.betomorrow.server.spring
 
 import org.springframework.core.annotation.AnnotationUtils
 import java.lang.reflect.Method

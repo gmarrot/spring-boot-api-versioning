@@ -1,12 +1,10 @@
-package com.betomorrow.sandbox.infra.spring
+package com.betomorrow.server.spring.mvc.versions
 
 class ApiVersion(version: String) {
     val value = version.trim()
 
     init {
-        if (!isValid(version)) {
-            throw IllegalArgumentException("Invalid API version '$version'")
-        }
+        require(isValid(version)) { "Invalid API version '$version'" }
     }
 
     override fun equals(other: Any?): Boolean {

@@ -1,8 +1,8 @@
-package com.betomorrow.sandbox.infra.openapi
+package com.betomorrow.server.spring.openapi
 
-import com.betomorrow.sandbox.infra.spring.ApiVersion
-import com.betomorrow.sandbox.infra.spring.RequestApiVersion
-import com.betomorrow.sandbox.infra.spring.findMergedAnnotation
+import com.betomorrow.server.spring.findMergedAnnotation
+import com.betomorrow.server.spring.mvc.versions.ApiVersion
+import com.betomorrow.server.spring.mvc.versions.RequestApiVersion
 import org.springdoc.core.filters.OpenApiMethodFilter
 import java.lang.reflect.Method
 

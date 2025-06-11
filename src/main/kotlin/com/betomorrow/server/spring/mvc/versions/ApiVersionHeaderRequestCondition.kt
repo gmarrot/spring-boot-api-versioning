@@ -1,22 +1,22 @@
-package com.betomorrow.sandbox.infra.spring
+package com.betomorrow.server.spring.mvc.versions
 
 import org.springframework.web.servlet.mvc.condition.RequestCondition
 import javax.servlet.http.HttpServletRequest
 
-class ApiVersionRequestCondition(
+class ApiVersionHeaderRequestCondition(
     private val apiVersions: Set<ApiVersion>,
-) : RequestCondition<ApiVersionRequestCondition> {
-    override fun combine(other: ApiVersionRequestCondition): ApiVersionRequestCondition {
+) : RequestCondition<ApiVersionHeaderRequestCondition> {
+    override fun combine(other: ApiVersionHeaderRequestCondition): ApiVersionHeaderRequestCondition {
         // Override condition with more specific one (method API versions overrides class API versions)
-        return ApiVersionRequestCondition(other.apiVersions)
+        return ApiVersionHeaderRequestCondition(other.apiVersions)
     }
 
-    override fun compareTo(other: ApiVersionRequestCondition, request: HttpServletRequest): Int {
+    override fun compareTo(other: ApiVersionHeaderRequestCondition, request: HttpServletRequest): Int {
         val missingKeys = other.apiVersions.minus(this.apiVersions)
         return missingKeys.size
     }
 
-    override fun getMatchingCondition(request: HttpServletRequest): ApiVersionRequestCondition? {
+    override fun getMatchingCondition(request: HttpServletRequest): ApiVersionHeaderRequestCondition? {
         val version = this.getApiVersionFromRequest(request)
         return if (version != null && this.apiVersions.contains(version)) {
             this

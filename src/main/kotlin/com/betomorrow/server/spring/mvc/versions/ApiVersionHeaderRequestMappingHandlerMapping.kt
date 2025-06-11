@@ -1,4 +1,4 @@
-package com.betomorrow.sandbox.infra.spring
+package com.betomorrow.server.spring.mvc.versions
 
 import org.springframework.core.annotation.AnnotatedElementUtils
 import org.springframework.core.annotation.AnnotationUtils
@@ -9,7 +9,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 import java.lang.reflect.AnnotatedElement
 import java.lang.reflect.Method
 
-class ApiVersionRequestMappingHandlerMapping : RequestMappingHandlerMapping() {
+class ApiVersionHeaderRequestMappingHandlerMapping : RequestMappingHandlerMapping() {
     override fun getCustomTypeCondition(handlerType: Class<*>): RequestCondition<*>? {
         return this.createRequestCondition(handlerType)
     }
@@ -34,9 +34,9 @@ class ApiVersionRequestMappingHandlerMapping : RequestMappingHandlerMapping() {
         return this.createRequestMappingInfo(requestMapping, requestCondition)
     }
 
-    private fun createRequestCondition(element: AnnotatedElement): RequestCondition<ApiVersionRequestCondition>? {
+    private fun createRequestCondition(element: AnnotatedElement): RequestCondition<ApiVersionHeaderRequestCondition>? {
         val requestApiVersion = AnnotationUtils.findAnnotation(element, RequestApiVersion::class.java) ?: return null
         val allowedApiVersions = requestApiVersion.value.map { ApiVersion(it) }.toSet()
-        return ApiVersionRequestCondition(allowedApiVersions)
+        return ApiVersionHeaderRequestCondition(allowedApiVersions)
     }
 }

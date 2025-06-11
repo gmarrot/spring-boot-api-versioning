@@ -1,6 +1,6 @@
 package com.betomorrow.sandbox.api.swagger
 
-import com.betomorrow.sandbox.infra.openapi.apiVersionsToMatch
+import com.betomorrow.server.spring.openapi.apiVersionsToMatch
 import org.springdoc.core.GroupedOpenApi
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

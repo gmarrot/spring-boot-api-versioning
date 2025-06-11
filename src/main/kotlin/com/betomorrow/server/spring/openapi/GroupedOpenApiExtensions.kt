@@ -1,6 +1,6 @@
-package com.betomorrow.sandbox.infra.openapi
+package com.betomorrow.server.spring.openapi
 
-import com.betomorrow.sandbox.infra.spring.ApiVersion
+import com.betomorrow.server.spring.mvc.versions.ApiVersion
 import org.springdoc.core.GroupedOpenApi
 
 fun GroupedOpenApi.Builder.apiVersionsToMatch(vararg version: String): GroupedOpenApi.Builder = addOpenApiMethodFilter(

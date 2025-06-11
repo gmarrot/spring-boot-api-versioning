@@ -1,6 +1,6 @@
 package com.betomorrow.sandbox.api.endpoints.users
 
-import com.betomorrow.sandbox.infra.spring.RequestApiVersion
+import com.betomorrow.server.spring.mvc.versions.RequestApiVersion
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController

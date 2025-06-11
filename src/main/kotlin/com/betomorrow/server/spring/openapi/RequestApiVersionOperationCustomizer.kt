@@ -1,7 +1,7 @@
-package com.betomorrow.sandbox.infra.openapi
+package com.betomorrow.server.spring.openapi
 
-import com.betomorrow.sandbox.infra.spring.RequestApiVersion
-import com.betomorrow.sandbox.infra.spring.findMergedAnnotation
+import com.betomorrow.server.spring.findMergedAnnotation
+import com.betomorrow.server.spring.mvc.versions.RequestApiVersion
 import io.swagger.v3.oas.models.Operation
 import io.swagger.v3.oas.models.media.Schema
 import io.swagger.v3.oas.models.media.StringSchema

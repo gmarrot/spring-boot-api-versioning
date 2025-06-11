@@ -1,4 +1,4 @@
-package com.betomorrow.sandbox.infra.spring
+package com.betomorrow.server.spring.mvc.versions
 
 import assertk.assertThat
 import assertk.assertions.isEqualTo

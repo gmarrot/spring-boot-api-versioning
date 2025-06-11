@@ -1,4 +1,4 @@
-package com.betomorrow.sandbox.infra.spring
+package com.betomorrow.server.spring.mvc.versions
 
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
 @Retention(AnnotationRetention.RUNTIME)
