@@ -9,7 +9,9 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 import java.lang.reflect.AnnotatedElement
 import java.lang.reflect.Method
 
-class ApiVersionHeaderRequestMappingHandlerMapping : RequestMappingHandlerMapping() {
+class ApiVersionHeaderRequestMappingHandlerMapping(
+    private val headerName: String,
+) : RequestMappingHandlerMapping() {
     override fun getCustomTypeCondition(handlerType: Class<*>): RequestCondition<*>? {
         return this.createRequestCondition(handlerType)
     }
@@ -37,6 +39,6 @@ class ApiVersionHeaderRequestMappingHandlerMapping : RequestMappingHandlerMappin
     private fun createRequestCondition(element: AnnotatedElement): RequestCondition<ApiVersionHeaderRequestCondition>? {
         val requestApiVersion = AnnotationUtils.findAnnotation(element, RequestApiVersion::class.java) ?: return null
         val allowedApiVersions = requestApiVersion.value.map { ApiVersion(it) }.toSet()
-        return ApiVersionHeaderRequestCondition(allowedApiVersions)
+        return ApiVersionHeaderRequestCondition(allowedApiVersions, headerName)
     }
 }

@@ -7,17 +7,17 @@ import io.swagger.v3.oas.models.media.Schema
 import io.swagger.v3.oas.models.media.StringSchema
 import io.swagger.v3.oas.models.parameters.HeaderParameter
 import org.springdoc.core.customizers.GlobalOperationCustomizer
-import org.springframework.stereotype.Component
 import org.springframework.web.method.HandlerMethod
 
-@Component
-class RequestApiVersionOperationCustomizer : GlobalOperationCustomizer {
+class RequestApiVersionOperationCustomizer(
+    private val headerName: String,
+) : GlobalOperationCustomizer {
     override fun customize(operation: Operation, handlerMethod: HandlerMethod): Operation {
         val requestApiVersion = handlerMethod.method.findMergedAnnotation(RequestApiVersion::class)
         if (requestApiVersion != null) {
             operation.addParametersItem(
                 HeaderParameter()
-                    .name("x-api-version")
+                    .name(headerName)
                     .schema(requestApiVersion.toOpenApiSchema())
                     .required(true),
             )

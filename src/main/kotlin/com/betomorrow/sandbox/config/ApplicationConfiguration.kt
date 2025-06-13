@@ -4,5 +4,7 @@ import com.betomorrow.server.spring.mvc.versions.EnableRequestApiVersion
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-@EnableRequestApiVersion
+@EnableRequestApiVersion(
+    headerName = "x-api-version",
+)
 class ApplicationConfiguration

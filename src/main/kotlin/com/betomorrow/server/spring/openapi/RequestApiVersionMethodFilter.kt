@@ -15,6 +15,6 @@ class RequestApiVersionMethodFilter(
             ?: return false
 
         val methodApiVersions = requestApiVersion.value.map { ApiVersion(it) }.toSet()
-        return methodApiVersions.any { allowedApiVersions.contains(it) }
+        return methodApiVersions.any { it in allowedApiVersions }
     }
 }
