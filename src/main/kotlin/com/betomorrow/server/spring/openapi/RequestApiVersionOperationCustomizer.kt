@@ -19,7 +19,7 @@ class RequestApiVersionOperationCustomizer : GlobalOperationCustomizer {
                 HeaderParameter()
                     .name("x-api-version")
                     .schema(requestApiVersion.toOpenApiSchema())
-                    .required(true)
+                    .required(true),
             )
         }
         return operation

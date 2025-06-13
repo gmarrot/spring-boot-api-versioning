@@ -1,7 +1,7 @@
 package com.betomorrow.server.spring.mvc.versions
 
+import jakarta.servlet.http.HttpServletRequest
 import org.springframework.web.servlet.mvc.condition.RequestCondition
-import javax.servlet.http.HttpServletRequest
 
 class ApiVersionHeaderRequestCondition(
     private val apiVersions: Set<ApiVersion>,

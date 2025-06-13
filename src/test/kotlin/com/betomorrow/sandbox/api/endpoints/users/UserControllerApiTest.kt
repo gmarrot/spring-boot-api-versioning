@@ -13,7 +13,7 @@ internal class UserControllerApiTest : ApiTest() {
         mockMvc
             .perform(
                 get("/users")
-                    .header("X-Api-Version", "2.0")
+                    .header("X-Api-Version", "2.0"),
             )
             .andExpect(status().isOk)
             .andExpect(jsonPath("$.users[0].email", equalTo("foobar@example.com")))

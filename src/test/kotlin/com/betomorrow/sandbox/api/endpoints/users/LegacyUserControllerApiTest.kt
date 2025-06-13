@@ -20,7 +20,7 @@ internal class LegacyUserControllerApiTest : ApiTest() {
         mockMvc
             .perform(
                 get("/users")
-                    .header("X-Api-Version", "invalid")
+                    .header("X-Api-Version", "invalid"),
             )
             .andExpect(status().isNotFound)
     }
@@ -30,7 +30,7 @@ internal class LegacyUserControllerApiTest : ApiTest() {
         mockMvc
             .perform(
                 get("/users")
-                    .header("X-Api-Version", "1.0")
+                    .header("X-Api-Version", "1.0"),
             )
             .andExpect(status().isOk)
             .andExpect(jsonPath("$[0].email", equalTo("foobar@example.com")))

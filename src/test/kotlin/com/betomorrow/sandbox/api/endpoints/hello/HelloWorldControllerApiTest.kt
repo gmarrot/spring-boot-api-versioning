@@ -19,7 +19,7 @@ internal class HelloWorldControllerApiTest : ApiTest() {
         mockMvc
             .perform(
                 get("/hello")
-                    .header("X-Api-Version", "invalid")
+                    .header("X-Api-Version", "invalid"),
             )
             .andExpect(status().isNotFound)
     }
@@ -29,7 +29,7 @@ internal class HelloWorldControllerApiTest : ApiTest() {
         mockMvc
             .perform(
                 get("/hello")
-                    .header("X-Api-Version", "1.0")
+                    .header("X-Api-Version", "1.0"),
             )
             .andExpect(status().isOk)
             .andExpect(content().string("Hello World!"))
@@ -40,7 +40,7 @@ internal class HelloWorldControllerApiTest : ApiTest() {
         mockMvc
             .perform(
                 get("/hello")
-                    .header("X-Api-Version", "2.0")
+                    .header("X-Api-Version", "2.0"),
             )
             .andExpect(status().isOk)
             .andExpect(content().string("Hello World!"))
@@ -58,7 +58,7 @@ internal class HelloWorldControllerApiTest : ApiTest() {
         mockMvc
             .perform(
                 get("/hello/Bob")
-                    .header("X-Api-Version", "invalid")
+                    .header("X-Api-Version", "invalid"),
             )
             .andExpect(status().isNotFound)
     }
@@ -68,7 +68,7 @@ internal class HelloWorldControllerApiTest : ApiTest() {
         mockMvc
             .perform(
                 get("/hello/Bob")
-                    .header("X-Api-Version", "1.0")
+                    .header("X-Api-Version", "1.0"),
             )
             .andExpect(status().isOk)
             .andExpect(content().string("Hello Bob"))
@@ -79,7 +79,7 @@ internal class HelloWorldControllerApiTest : ApiTest() {
         mockMvc
             .perform(
                 get("/hello/Bob")
-                    .header("X-Api-Version", "2.0")
+                    .header("X-Api-Version", "2.0"),
             )
             .andExpect(status().isNotFound)
     }

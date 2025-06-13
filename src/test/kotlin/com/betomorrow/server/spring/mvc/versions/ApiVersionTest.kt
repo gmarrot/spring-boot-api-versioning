@@ -1,18 +1,17 @@
 package com.betomorrow.server.spring.mvc.versions
 
-import assertk.assertThat
-import assertk.assertions.isEqualTo
-import assertk.assertions.isNotEqualTo
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
+import kotlin.test.assertEquals
+import kotlin.test.assertNotEquals
 
 internal class ApiVersionTest {
     @Test
     fun `test equality`() {
-        assertThat(ApiVersion("1")).isEqualTo(ApiVersion("1"))
-        assertThat(ApiVersion("1")).isNotEqualTo(ApiVersion("1.1"))
-        assertThat(ApiVersion("1.1")).isNotEqualTo(ApiVersion("1.1.1"))
-        assertThat(ApiVersion("1")).isNotEqualTo(ApiVersion("2"))
+        assertEquals(ApiVersion("1"), ApiVersion("1"))
+        assertNotEquals(ApiVersion("1"), ApiVersion("1.1"))
+        assertNotEquals(ApiVersion("1.1"), ApiVersion("1.1.1"))
+        assertNotEquals(ApiVersion("1"), ApiVersion("2"))
     }
 
     @Test
