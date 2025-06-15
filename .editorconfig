@@ -6,11 +6,22 @@ end_of_line = lf
 indent_size = 4
 indent_style = space
 insert_final_newline = true
-trim_trailing_whitespace = true
 max_line_length = off
+tab_width = 4
+trim_trailing_whitespace = true
 
 [*.bat]
 end_of_line = crlf
+
+[{*.kt,*.kts}]
+ktlint_code_style = ktlint_official
+ktlint_function_signature_rule_force_multiline_when_parameter_count_greater_or_equal_than = 4
+ij_kotlin_code_style_defaults = KOTLIN_OFFICIAL
+ij_kotlin_name_count_to_use_star_import = unset
+ij_kotlin_name_count_to_use_star_import_for_members = unset
+
+[*.kts]
+ktlint_standard_no-consecutive-comments = disabled
 
 [*.md]
 trim_trailing_whitespace = false
