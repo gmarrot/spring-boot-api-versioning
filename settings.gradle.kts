@@ -1,6 +1,7 @@
 rootProject.name = "spring-boot-api-versioning"
 
 include(
-    ":app",
+    ":header-versioning-app",
+    ":path-versioning-app",
     ":library",
 )
