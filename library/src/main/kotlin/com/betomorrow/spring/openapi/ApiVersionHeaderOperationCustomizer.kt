@@ -9,7 +9,7 @@ import io.swagger.v3.oas.models.parameters.HeaderParameter
 import org.springdoc.core.customizers.GlobalOperationCustomizer
 import org.springframework.web.method.HandlerMethod
 
-class RequestApiVersionOperationCustomizer(
+class ApiVersionHeaderOperationCustomizer(
     private val headerName: String,
 ) : GlobalOperationCustomizer {
     override fun customize(operation: Operation, handlerMethod: HandlerMethod): Operation {

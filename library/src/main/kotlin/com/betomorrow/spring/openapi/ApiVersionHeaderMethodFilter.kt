@@ -6,7 +6,7 @@ import com.betomorrow.spring.mvc.versions.RequestApiVersion
 import org.springdoc.core.filters.OpenApiMethodFilter
 import java.lang.reflect.Method
 
-class RequestApiVersionMethodFilter(
+class ApiVersionHeaderMethodFilter(
     private val allowedApiVersions: Set<ApiVersion>,
 ) : OpenApiMethodFilter {
     override fun isMethodToInclude(method: Method): Boolean {

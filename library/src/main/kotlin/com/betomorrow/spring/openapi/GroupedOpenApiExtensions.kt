@@ -5,5 +5,5 @@ import org.springdoc.core.models.GroupedOpenApi
 
 fun GroupedOpenApi.Builder.apiVersionsToMatch(vararg version: String): GroupedOpenApi.Builder =
     addOpenApiMethodFilter(
-        RequestApiVersionMethodFilter(version.map { ApiVersion(it) }.toSet()),
+        ApiVersionHeaderMethodFilter(version.map { ApiVersion(it) }.toSet()),
     )
