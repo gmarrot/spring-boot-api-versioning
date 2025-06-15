@@ -1,6 +1,7 @@
 package com.betomorrow.spring.mvc.versions
 
 import org.springframework.core.annotation.AnnotatedElementUtils
+import org.springframework.core.annotation.AnnotationUtils
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
@@ -23,7 +24,7 @@ class ApiVersionPathRequestMappingHandlerMapping(
 
     private fun createRequestMappingInfo(element: AnnotatedElement): RequestMappingInfo? {
         val originalMapping = AnnotatedElementUtils.findMergedAnnotation(element, RequestMapping::class.java) ?: return null
-        val requestApiVersion = AnnotatedElementUtils.findMergedAnnotation(element, RequestApiVersion::class.java)
+        val requestApiVersion = AnnotationUtils.findAnnotation(element, RequestApiVersion::class.java)
 
         if (requestApiVersion == null) {
             return this.createRequestMappingInfo(originalMapping, null)
